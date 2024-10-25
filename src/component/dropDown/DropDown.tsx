@@ -1,16 +1,35 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ms} from '../../utils/scale';
 import {DownArrowLogo, UpArrowLogo} from '../../assets';
-import {colors} from '../../utils/constants';
+import {colors, languages} from '../../utils/constants';
+import {useTranslation} from 'react-i18next';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const DropDown = () => {
   const [show, setShow] = useState(false);
-  const [option, setOption] = useState('men');
+  const [option, setOption] = useState('english');
+  const {t, i18n} = useTranslation();
 
-  const handleSelect = (value: string) => {
+  useEffect(() => {
+    const loadLanguage = async () => {
+      const savedLang = await AsyncStorage.getItem('selectedLanguage');
+      if (savedLang) {
+        const selectedLang = languages.find(lang => lang.code === savedLang);
+        if (selectedLang) {
+          setOption(selectedLang.name); // Set the display option to the saved language
+          i18n.changeLanguage(savedLang); // Change the i18n language
+        }
+      }
+    };
+
+    loadLanguage();
+  }, []);
+  const handleSelect = async (name: string, code: string) => {
+    setOption(name);
     setShow(false);
-    setOption(value);
+    i18n.changeLanguage(code);
+    await AsyncStorage.setItem('selectedLanguage', code);
   };
 
   return (
@@ -24,12 +43,13 @@ const DropDown = () => {
       </TouchableOpacity>
       {show && (
         <View style={styles.dropBox}>
-          <Text style={styles.dropText} onPress={() => handleSelect('men')}>
-            men
-          </Text>
-          <Text style={styles.dropText} onPress={() => handleSelect('women')}>
-            women
-          </Text>
+          {languages?.map(lang => (
+            <Text
+              key={lang.code}
+              onPress={() => handleSelect(lang.name, lang.code)}>
+              {t(lang.name)}
+            </Text>
+          ))}
         </View>
       )}
     </View>
