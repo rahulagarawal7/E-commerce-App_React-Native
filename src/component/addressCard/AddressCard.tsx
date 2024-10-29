@@ -1,7 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {FC} from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 
 interface AddressCardProps {
   address: string;

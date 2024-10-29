@@ -4,13 +4,18 @@ import {CartLogo, UserLogo} from '../../assets';
 import {ms} from '../../utils/scale';
 import DropDown from '../dropDown/DropDown';
 
-const Header = () => {
+interface HeaderProps {
+  closeDropDown: Function;
+  show: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({closeDropDown, show}) => {
   return (
     <View style={styles.container}>
       <View style={styles.profileImage}>
         <Image source={UserLogo} style={styles.userImage} />
       </View>
-      <DropDown />
+      <DropDown closeDropDown={closeDropDown} show={show} />
       <TouchableOpacity>
         <Image style={styles.cartLogo} source={CartLogo} />
       </TouchableOpacity>

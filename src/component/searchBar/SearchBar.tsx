@@ -1,8 +1,7 @@
 import {Image, StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
 import {SearchIcon} from '../../assets';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 
 interface SearchBarProps {
   placeholder: string;

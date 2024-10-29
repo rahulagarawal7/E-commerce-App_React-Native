@@ -1,8 +1,7 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors, mask} from '../../utils/constants';
 import {BackArrowLogo, PaymentCardLogo} from '../../assets';
+import {mask, ms, colors} from '../../utils';
 
 interface PaymentCardProps {
   cardNumber: number;

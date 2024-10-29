@@ -7,8 +7,7 @@ import {
   CategoriesImage4,
   CategoriesImage5,
 } from '../../assets';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 
 const CategoriesCard = () => {
   const categoriesName = ['Hoodies', 'Shorts', 'Accessories', 'Shoes', 'Bag'];

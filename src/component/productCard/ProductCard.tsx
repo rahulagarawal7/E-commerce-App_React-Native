@@ -1,9 +1,9 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import img from '/Users/dr.mac/Desktop/Ecommerce_App/src/assets/dummy/cardImg.png';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+
 import {likeLogo, likeRedLogo} from '../../assets';
+import {colors, ms} from '../../utils';
 
 const ProductCard = () => {
   const [like, setLike] = useState(false);

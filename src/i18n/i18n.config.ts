@@ -1,6 +1,6 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-import { en, fr, hi, zh } from "./translations";
+import { en, fr, hi } from "./translations";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const resources = {
@@ -12,10 +12,7 @@ const resources = {
   },
   fr: {
     translation: fr,
-  },
-  zh: {
-    translation: zh,
-  },
+  }
 }
 
 const loadLanguage = async () => {
@@ -35,6 +32,7 @@ const initI18n = async () => {
       resources,
       compatibilityJSON: 'v3',
     });
+   
 };
 
 initI18n();

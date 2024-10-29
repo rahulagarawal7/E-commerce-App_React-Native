@@ -1,16 +1,21 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
-
+import {colors, ms} from '../../utils';
+import {t} from 'i18next';
 interface ButtonProps {
   buttonName: string;
+  style?: object;
+  handleSubmit: Function;
 }
 
-const Button: React.FC<ButtonProps> = ({buttonName}) => {
+const Button: React.FC<ButtonProps> = ({buttonName, style, handleSubmit}) => {
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.text}>{buttonName}</Text>
+    <TouchableOpacity
+      style={[styles.container, style]}
+      onPress={() => {
+        handleSubmit();
+      }}>
+      <Text style={styles.text}>{t(buttonName)}</Text>
     </TouchableOpacity>
   );
 };
@@ -20,11 +25,12 @@ export default Button;
 const styles = StyleSheet.create({
   container: {
     height: ms(52),
-    width: '50%',
+    width: ms(342),
     backgroundColor: colors.tintColor,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 20,
+    alignSelf: 'center',
   },
   text: {
     color: colors.primaryBgColor,

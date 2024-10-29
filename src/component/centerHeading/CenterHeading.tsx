@@ -1,7 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {colors} from '../../utils/constants';
-import {ms} from '../../utils/scale';
+import {colors, ms} from '../../utils';
 
 interface CenterHeadingProps {
   headingName: string;

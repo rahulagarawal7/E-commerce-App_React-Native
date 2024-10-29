@@ -1,0 +1,11 @@
+export {default as Home} from './home/Home';
+export {default as Notification} from './notification/Notification';
+export {default as Profile} from './profile/Profile';
+export {default as Cart} from './cart/Cart';
+export {default as Wishlist} from './wishlist/Wishlist.tsx';
+export {default as UserProfile} from './userProfile/UserProfile.tsx';
+export {default as Address} from './address/Address.tsx';
+export {default as Payment} from './payment/Payment.tsx';
+export {default as Help} from './help/Help.tsx';
+export {default as Support} from './support/Support.tsx';
+export {default as AddAddress} from './addAddress/AddAddress.tsx';

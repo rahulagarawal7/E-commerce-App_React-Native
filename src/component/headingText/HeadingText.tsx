@@ -1,7 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 
 interface HeadingTextProps {
   primaryText: string;

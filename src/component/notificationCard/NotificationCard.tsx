@@ -1,8 +1,7 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
 import {NotificationBingIcon, NotificationIcon} from '../../assets';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 
 interface NotificationCardProps {
   notificationTitle: string;

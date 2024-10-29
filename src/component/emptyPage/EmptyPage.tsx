@@ -1,21 +1,30 @@
 import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
-import Button from '../button.jsx/Button';
+import {colors, ms} from '../../utils';
+import {Button} from '../../component';
+import {t} from 'i18next';
 
 interface EmptyPageProps {
   title: string;
   image: ImageSourcePropType;
   btnName: string;
+  style?: object;
+  btn?: boolean;
 }
 
-const EmptyPage: React.FC<EmptyPageProps> = ({title, image, btnName}) => {
+const EmptyPage: React.FC<EmptyPageProps> = ({
+  title,
+  image,
+  btnName,
+  style,
+  btn,
+}) => {
+  const handleSubmit = () => {};
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, style]}>
       <Image source={image} style={styles.image} />
-      <Text style={styles.text}>{title}</Text>
-      <Button buttonName={btnName} />
+      <Text style={styles.text}>{t(title)}</Text>
+      {btn && <Button buttonName={btnName} handleSubmit={handleSubmit} />}
     </View>
   );
 };

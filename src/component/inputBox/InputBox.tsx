@@ -1,19 +1,18 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
+import {t} from 'i18next';
 
 interface InputBoxProps {
   placeholder: string;
+  containerStyle?: object;
 }
 
-const InputBox: React.FC<InputBoxProps> = ({placeholder}) => {
+const InputBox: React.FC<InputBoxProps> = ({placeholder, containerStyle}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, containerStyle]}>
       <TextInput
-        placeholder={
-          placeholder?.charAt(0).toUpperCase() + placeholder.slice(0)
-        }
+        placeholder={t(placeholder)}
         placeholderTextColor={colors.textColor}
         style={styles.text}
       />

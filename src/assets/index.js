@@ -25,5 +25,6 @@ export {default as SearchEmptyLogo} from './logo/Empty/search.png';
 export {default as MinusProductLogo} from './logo/minus.png';
 export {default as PlusProductLogo} from './logo/plus.png';
 export {default as PaymentCardLogo} from './logo/paymentCard.png';
-
+export {default as EmptyAddressLogo} from './logo/Empty/addressLogo.png';
+export {default as EmptyPaymentLogo} from './logo/Empty/payment.png';
 export {default as DummyImage} from './dummy/cardImg.png';

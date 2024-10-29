@@ -1,19 +1,27 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
+import {colors, ms} from '../../utils';
 import {BackArrowLogo} from '../../assets';
+import {useTranslation} from 'react-i18next';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 
 interface AddButtonCardProps {
   title: string;
 }
 
 const AddButtonCard: React.FC<AddButtonCardProps> = ({title}) => {
+  const {t} = useTranslation();
+
+  const navigation = useNavigation<NavigationProp<AddButtonCardProps>>();
+  const handlePressed = (name: string) => {
+    navigation.navigate(name as keyof AddButtonCardProps);
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
-      <Text style={styles.text}>
-        {title?.charAt(0)?.toUpperCase() + title?.slice(1)}
-      </Text>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => handlePressed(title)}>
+      <Text style={styles.text}>{t(title)}</Text>
       <Image source={BackArrowLogo} style={styles.image} />
     </TouchableOpacity>
   );

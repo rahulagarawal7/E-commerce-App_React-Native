@@ -1,13 +1,16 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import {ms} from '../../utils/scale';
 import {DownArrowLogo, UpArrowLogo} from '../../assets';
-import {colors, languages} from '../../utils/constants';
 import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {languages, colors, ms} from '../../utils';
 
-const DropDown = () => {
-  const [show, setShow] = useState(false);
+interface DropDownProps {
+  closeDropDown: Function;
+  show: boolean;
+}
+
+const DropDown: React.FC<DropDownProps> = ({closeDropDown, show}) => {
   const [option, setOption] = useState('english');
   const {t, i18n} = useTranslation();
 
@@ -27,14 +30,14 @@ const DropDown = () => {
   }, []);
   const handleSelect = async (name: string, code: string) => {
     setOption(name);
-    setShow(false);
+    closeDropDown();
     i18n.changeLanguage(code);
     await AsyncStorage.setItem('selectedLanguage', code);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.box} onPress={() => setShow(!show)}>
+      <TouchableOpacity style={styles.box} onPress={() => closeDropDown()}>
         <Text>{option}</Text>
         <Image
           source={show ? UpArrowLogo : DownArrowLogo}
@@ -59,7 +62,9 @@ const DropDown = () => {
 export default DropDown;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    zIndex: 0.5,
+  },
   box: {
     flexDirection: 'row',
     height: ms(40),
@@ -72,12 +77,15 @@ const styles = StyleSheet.create({
   },
   dropBox: {
     width: ms(80),
+    gap: 5,
     backgroundColor: colors.secondaryBgColor,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: ms(5),
     borderRadius: 10,
     paddingVertical: ms(5),
+    position: 'absolute',
+    zIndex: 1,
   },
   dropText: {
     paddingVertical: ms(5),

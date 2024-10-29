@@ -1,8 +1,7 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {ms} from '../../utils/scale';
-import {colors} from '../../utils/constants';
 import {DummyImage, MinusProductLogo, PlusProductLogo} from '../../assets';
+import {colors, ms} from '../../utils';
 
 const CartCard = () => {
   return (
