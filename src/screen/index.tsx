@@ -9,3 +9,5 @@ export {default as Payment} from './payment/Payment.tsx';
 export {default as Help} from './help/Help.tsx';
 export {default as Support} from './support/Support.tsx';
 export {default as AddAddress} from './addAddress/AddAddress.tsx';
+export {default as Login} from './login/Login.tsx';
+export {default as SignUP} from './signUp/SignUp.tsx';
