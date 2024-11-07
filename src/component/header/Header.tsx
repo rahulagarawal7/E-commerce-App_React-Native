@@ -3,6 +3,7 @@ import React from 'react';
 import {CartLogo, UserLogo} from '../../assets';
 import {ms} from '../../utils/scale';
 import DropDown from '../dropDown/DropDown';
+import {useNavigation} from '@react-navigation/native';
 
 interface HeaderProps {
   closeDropDown: Function;
@@ -10,13 +11,17 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({closeDropDown, show}) => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <View style={styles.profileImage}>
         <Image source={UserLogo} style={styles.userImage} />
       </View>
       <DropDown closeDropDown={closeDropDown} show={show} />
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate('cart');
+        }}>
         <Image style={styles.cartLogo} source={CartLogo} />
       </TouchableOpacity>
     </View>

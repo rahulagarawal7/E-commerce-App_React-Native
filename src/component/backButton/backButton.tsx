@@ -7,7 +7,7 @@ import {t} from 'i18next';
 import {useNavigation} from '@react-navigation/native';
 
 interface BackButtonProps {
-  heading: string;
+  heading?: string;
   searchBox?: boolean;
 }
 

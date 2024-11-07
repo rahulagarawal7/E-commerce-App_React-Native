@@ -1,21 +1,27 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {BackButton, Button, InputBox} from '../../component';
 import {colors, ms} from '../../utils';
-import {t} from 'i18next';
+import {UserLogo} from '../../assets';
 
 const UserProfile = () => {
+  const handleSubmit = () => {};
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.outerBox}>
       <BackButton heading={'back'} />
+      <View style={styles.container}>
+        <View style={styles.userImageBox}>
+          <Image source={UserLogo} style={styles.userImage} />
+        </View>
 
-      <InputBox placeholder="Name" />
-      <InputBox placeholder="Email" />
+        <InputBox placeholder="name" />
+        <InputBox placeholder="email" />
 
-      <InputBox placeholder="phone" />
+        <InputBox placeholder="phone" />
 
-      <Button buttonName="update" />
-    </View>
+        <Button buttonName="update" handleSubmit={handleSubmit} />
+      </View>
+    </ScrollView>
   );
 };
 
@@ -23,8 +29,6 @@ export default UserProfile;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.primaryBgColor,
     gap: 15,
   },
   box: {
@@ -36,5 +40,23 @@ const styles = StyleSheet.create({
   },
   smallInputBox: {
     width: ms(160),
+  },
+  outerBox: {
+    backgroundColor: colors.primaryBgColor,
+    height: '100%',
+    width: '100%',
+  },
+  userImageBox: {
+    height: ms(120),
+    width: ms(120),
+    borderRadius: 120,
+    alignSelf: 'center',
+    marginTop: '20%',
+  },
+  userImage: {
+    height: ms(100),
+    width: ms(100),
+    borderRadius: 120,
+    objectFit: 'fill',
   },
 });

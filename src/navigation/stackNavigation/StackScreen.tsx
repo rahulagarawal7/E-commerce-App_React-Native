@@ -1,8 +1,13 @@
 import {
   AddAddress,
+  AddPayment,
   Address,
+  Cart,
+  CategoryList,
   Help,
   Payment,
+  Search,
+  SeeAllCategories,
   Support,
   UserProfile,
   Wishlist,
@@ -36,9 +41,34 @@ const StackScreen = [
     component: UserProfile,
   },
   {
-    id: 6,
+    id: 7,
     name: 'addAddress',
     component: AddAddress,
+  },
+  {
+    id: 8,
+    name: 'seeAllCategories',
+    component: SeeAllCategories,
+  },
+  {
+    id: 9,
+    name: 'categoryList',
+    component: CategoryList,
+  },
+  {
+    id: 10,
+    name: 'addPayment',
+    component: AddPayment,
+  },
+  {
+    id: 11,
+    name: 'cart',
+    component: Cart,
+  },
+  {
+    id: 12,
+    name: 'search',
+    component: Search,
   },
 ];
 export default StackScreen;

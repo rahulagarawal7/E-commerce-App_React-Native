@@ -4,9 +4,11 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  View,
 } from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
+import {t} from 'i18next';
 
 interface ShopByCategoriesCard {
   categoryName: string;
@@ -18,12 +20,10 @@ const ShopByCategoriesCard: React.FC<ShopByCategoriesCard> = ({
   categoryImage,
 }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <View style={styles.container}>
       <Image source={categoryImage} style={styles.image} />
-      <Text style={styles.nameText}>
-        {categoryName?.charAt(0).toUpperCase() + categoryName?.slice(1)}
-      </Text>
-    </TouchableOpacity>
+      <Text style={styles.nameText}>{t(categoryName)}</Text>
+    </View>
   );
 };
 
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,
+    marginVertical: 5,
   },
   image: {
     height: ms(40),

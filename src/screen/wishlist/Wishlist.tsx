@@ -10,11 +10,12 @@ const Wishlist = () => {
       <BackButton heading="back" />
       <ScrollView>
         <EmptyPage
-          title="Your Wishlist is Empty"
+          title="your wishlist is empty"
           btnName="explore category"
           image={CartEmptyLogo}
           style={styles.box}
           btn={true}
+          navigationScreeName="seeAllCategories"
         />
       </ScrollView>
     </View>
@@ -30,6 +31,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primaryBgColor,
   },
   box: {
-    marginVertical: '40%',
+    marginTop: '50%',
   },
 });

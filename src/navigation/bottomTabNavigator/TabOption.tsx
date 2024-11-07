@@ -8,7 +8,7 @@ interface TabOptionsProps {
 
 const TabOptions: React.FC<TabOptionsProps> = ({focused, Icon}) => {
   return (
-    <View style={focused && styles.circle}>
+    <View style={[focused && styles.circle, styles.box]}>
       <Image source={Icon} style={[styles.icons, focused && styles.isFocus]} />
     </View>
   );
@@ -19,7 +19,7 @@ export default TabOptions;
 const styles = StyleSheet.create({
   isFocus: {
     color: 'black',
-    tintColor: colors.textColor,
+    tintColor: colors.primaryBgColor,
   },
   circle: {
     height: ms(40),
@@ -33,5 +33,8 @@ const styles = StyleSheet.create({
     tintColor: colors.textColor,
     height: ms(22),
     width: ms(22),
+  },
+  box: {
+    marginTop: 10,
   },
 });

@@ -1,18 +1,30 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React, {useState} from 'react';
-import img from '/Users/dr.mac/Desktop/Ecommerce_App/src/assets/dummy/cardImg.png';
 
 import {likeLogo, likeRedLogo} from '../../assets';
 import {colors, ms} from '../../utils';
 
-const ProductCard = () => {
+interface ProductCardProps {
+  name: string;
+  price: string;
+  image: ImageSourcePropType;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({name, price, image}) => {
   const [like, setLike] = useState(false);
   const handleLikePressed = () => {
     setLike(!like);
   };
   return (
     <TouchableOpacity style={styles.container}>
-      <Image source={img} style={styles.ProductImage} />
+      <Image source={image} style={styles.ProductImage} />
       <TouchableOpacity
         style={styles.likeContainer}
         onPress={() => {
@@ -21,8 +33,8 @@ const ProductCard = () => {
         <Image source={like ? likeRedLogo : likeLogo} style={styles.lkeImage} />
       </TouchableOpacity>
       <View style={styles.textBox}>
-        <Text style={styles.nameText}>Product Name</Text>
-        <Text style={styles.priceText}>$ Price</Text>
+        <Text style={styles.nameText}>{name}</Text>
+        <Text style={styles.priceText}>{price}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -42,6 +54,7 @@ const styles = StyleSheet.create({
     width: ms(159),
     borderRadius: 10,
     backgroundColor: colors.secondaryBgColor,
+    marginHorizontal: 10,
   },
   textBox: {
     height: ms(59),

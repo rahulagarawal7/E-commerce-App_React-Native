@@ -1,3 +1,11 @@
+import {
+  CategoriesImage1,
+  CategoriesImage2,
+  CategoriesImage3,
+  CategoriesImage4,
+  CategoriesImage5,
+} from '../assets';
+
 export const colors: {[key: string]: string} = {
   tintColor: '#8e6cef',
   textColor: '#000000',
@@ -11,4 +19,32 @@ export const languages = [
   {name: 'english', code: 'en'},
   {name: 'hindi', code: 'hi'},
   {name: 'french', code: 'fr'},
+];
+
+export const categoriesList = [
+  {
+    id: 1,
+    categoriesImage: CategoriesImage1,
+    categoriesName: 'hoodies',
+  },
+  {
+    id: 2,
+    categoriesImage: CategoriesImage2,
+    categoriesName: 'shorts',
+  },
+  {
+    id: 3,
+    categoriesImage: CategoriesImage3,
+    categoriesName: 'accessories',
+  },
+  {
+    id: 4,
+    categoriesImage: CategoriesImage4,
+    categoriesName: 'shoes',
+  },
+  {
+    id: 5,
+    categoriesImage: CategoriesImage5,
+    categoriesName: 'bag',
+  },
 ];

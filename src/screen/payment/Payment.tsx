@@ -8,7 +8,7 @@ import {EmptyPaymentLogo} from '../../assets';
 const Payment = () => {
   const navigation = useNavigation();
   const addAddress = () => {
-    navigation.navigate('addAddress');
+    navigation.navigate('addPayment');
   };
 
   return (

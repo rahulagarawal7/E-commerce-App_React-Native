@@ -1,31 +1,26 @@
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {
-  CategoriesImage1,
-  CategoriesImage2,
-  CategoriesImage3,
-  CategoriesImage4,
-  CategoriesImage5,
-} from '../../assets';
 import {colors, ms} from '../../utils';
+import {categoriesList} from '../../utils/constants';
+import {t} from 'i18next';
+import {useNavigation} from '@react-navigation/native';
 
 const CategoriesCard = () => {
-  const categoriesName = ['Hoodies', 'Shorts', 'Accessories', 'Shoes', 'Bag'];
-  const categoriesImages = [
-    CategoriesImage1,
-    CategoriesImage2,
-    CategoriesImage3,
-    CategoriesImage4,
-    CategoriesImage5,
-  ];
-
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      {categoriesName.map((name, index) => (
-        <View key={name} style={styles.box}>
-          <Image source={categoriesImages[index]} style={styles.image} />
-          <Text style={styles.categoriesNameText}>{name}</Text>
-        </View>
+      {categoriesList.map(category => (
+        <TouchableOpacity
+          key={category.id}
+          style={styles.box}
+          onPress={() =>
+            navigation.navigate('categoryList', {name: category.categoriesName})
+          }>
+          <Image source={category.categoriesImage} style={styles.image} />
+          <Text style={styles.categoriesNameText}>
+            {t(category.categoriesName)}
+          </Text>
+        </TouchableOpacity>
       ))}
     </View>
   );
@@ -42,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     gap: 10,
-    backgroundColor: colors.secondaryBgColor,
+    backgroundColor: colors.primaryBgColor,
   },
   image: {
     height: ms(56),

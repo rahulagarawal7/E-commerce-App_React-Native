@@ -1,26 +1,25 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {EmptyPage} from '../../component';
-import {BellEmptyLogo} from '../../assets';
+import {CheckOutEmptyLogo} from '../../assets';
 
-const Notification = () => {
+const Order = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.emptyBox}>
         <EmptyPage
           btnName="explore categories"
-          image={BellEmptyLogo}
-          title="no notification yet"
-          btn={true}
+          image={CheckOutEmptyLogo}
+          title="no order yet"
           navigationScreeName="seeAllCategories"
+          btn={true}
         />
       </View>
     </ScrollView>
   );
 };
 
-export default Notification;
-
+export default Order;
 const styles = StyleSheet.create({
   container: {
     height: '100%',

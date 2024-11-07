@@ -3,27 +3,25 @@ import React from 'react';
 import {BackButton, Button, InputBox} from '../../component';
 import {colors, ms} from '../../utils';
 
-const AddAddress = () => {
+const AddPayment = () => {
   const handleSubmit = () => {};
   return (
     <View style={styles.container}>
       <BackButton heading={'back'} />
 
-      <InputBox placeholder="street address" />
-      <InputBox placeholder="city" />
+      <InputBox placeholder="card number" />
       <View style={styles.box}>
-        <InputBox placeholder="state" containerStyle={styles.smallInputBox} />
-        <InputBox
-          placeholder="zip code"
-          containerStyle={styles.smallInputBox}
-        />
+        <InputBox placeholder="ccv" containerStyle={styles.smallInputBox} />
+        <InputBox placeholder="exp" containerStyle={styles.smallInputBox} />
       </View>
+      <InputBox placeholder="cardholder name" />
+
       <Button buttonName="add" handleSubmit={handleSubmit} />
     </View>
   );
 };
 
-export default AddAddress;
+export default AddPayment;
 
 const styles = StyleSheet.create({
   container: {

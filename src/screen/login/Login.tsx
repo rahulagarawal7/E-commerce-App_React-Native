@@ -3,19 +3,29 @@ import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button, InputBox} from '../../component';
 import {AppleLogo, FacebookLogo, GoogleLogo} from '../../assets';
+import {useNavigation} from '@react-navigation/native';
+import {t} from 'i18next';
 
 const Login = () => {
-  const handleLogin = () => {};
+  const navigation = useNavigation();
+  const handleLogin = () => {
+    navigation.navigate('BottomTab');
+  };
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>Sign In</Text>
       <View style={styles.inputBox}>
-        <InputBox placeholder="Email" />
-        <InputBox placeholder="Password" />
-        <Button buttonName="Sign In" handleSubmit={handleLogin} />
+        <InputBox placeholder="email" />
+        <InputBox placeholder="password" />
+        <Button buttonName="sign in" handleSubmit={handleLogin} />
       </View>
       <Text style={styles.createText}>
-        Dont't have account? <Text style={styles.textOne}>Create one</Text>{' '}
+        {t(`don't have account`)}?{' '}
+        <Text
+          style={styles.textOne}
+          onPress={() => navigation.navigate('SignUP')}>
+          {t('create one')}
+        </Text>{' '}
       </Text>
       <View style={styles.imgBox}>
         <Image source={GoogleLogo} style={styles.logo} />

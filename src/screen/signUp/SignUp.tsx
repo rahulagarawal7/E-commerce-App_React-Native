@@ -2,21 +2,29 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button, InputBox} from '../../component';
+import {t} from 'i18next';
 
-const SignUp = () => {
-  const handleLogin = () => {};
+const SignUp = ({navigation}) => {
+  const handleLogin = () => {
+    navigation.navigate('BottomTab');
+  };
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.heading}>Sign Up</Text>
       <View style={styles.inputBox}>
-        <InputBox placeholder="Name" />
-        <InputBox placeholder="Phone" />
-        <InputBox placeholder="Email" />
-        <InputBox placeholder="Password" />
-        <Button buttonName="Sign Up" handleSubmit={handleLogin} />
+        <InputBox placeholder={'name'} />
+        <InputBox placeholder="phone" />
+        <InputBox placeholder="email" />
+        <InputBox placeholder="password" />
+        <Button buttonName="sign up" handleSubmit={handleLogin} />
       </View>
       <Text style={styles.createText}>
-        Already have account? <Text style={styles.textOne}>Sign in</Text>{' '}
+        {t('already have account')}?{' '}
+        <Text
+          style={styles.textOne}
+          onPress={() => navigation.navigate('Login')}>
+          {t('sign in')}
+        </Text>{' '}
       </Text>
     </ScrollView>
   );

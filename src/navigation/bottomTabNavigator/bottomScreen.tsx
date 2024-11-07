@@ -1,4 +1,4 @@
-import {Home, Cart, Notification, Profile} from '../../screen';
+import {Home, Order, Notification, Profile} from '../../screen';
 import {
   HomeIcon,
   ProfileIcon,
@@ -13,7 +13,7 @@ const bottomTabNavigation = [
     component: Home,
     icon: HomeIcon,
   },
-  {id: 2, name: 'Cart', component: Cart, icon: ReceiptIcon},
+  {id: 2, name: 'Order', component: Order, icon: ReceiptIcon},
   {
     id: 3,
     name: 'Notification',

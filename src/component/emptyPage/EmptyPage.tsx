@@ -3,12 +3,14 @@ import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button} from '../../component';
 import {t} from 'i18next';
+import {useNavigation} from '@react-navigation/native';
 
 interface EmptyPageProps {
   title: string;
   image: ImageSourcePropType;
   btnName: string;
   style?: object;
+  navigationScreeName?: string;
   btn?: boolean;
 }
 
@@ -18,8 +20,12 @@ const EmptyPage: React.FC<EmptyPageProps> = ({
   btnName,
   style,
   btn,
+  navigationScreeName,
 }) => {
-  const handleSubmit = () => {};
+  const navigation = useNavigation();
+  const handleSubmit = () => {
+    navigation.navigate(navigationScreeName);
+  };
   return (
     <View style={[styles.container, style]}>
       <Image source={image} style={styles.image} />

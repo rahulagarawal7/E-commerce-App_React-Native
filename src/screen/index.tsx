@@ -11,3 +11,8 @@ export {default as Support} from './support/Support.tsx';
 export {default as AddAddress} from './addAddress/AddAddress.tsx';
 export {default as Login} from './login/Login.tsx';
 export {default as SignUP} from './signUp/SignUp.tsx';
+export {default as SeeAllCategories} from './seeAllCategories/SeeAllCategories.tsx';
+export {default as CategoryList} from './categoryList/CategoryList.tsx';
+export {default as AddPayment} from './addPayment/AddPayment.tsx';
+export {default as Order} from './order/Order.tsx';
+export {default as Search} from './search/Search.tsx';

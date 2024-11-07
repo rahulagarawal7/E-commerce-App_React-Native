@@ -7,8 +7,8 @@ const Stack = createNativeStackNavigator();
 const RootNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-      <Stack.Screen name="signUP" component={SignUP} />
-      <Stack.Screen name="login" component={Login} />
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SignUP" component={SignUP} />
       <Stack.Screen name="BottomTab" component={BottomTabNavigator} />
       {StackScreen?.map(screen => (
         <Stack.Screen
