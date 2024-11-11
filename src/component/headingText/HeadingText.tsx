@@ -32,9 +32,7 @@ export default HeadingText;
 
 const styles = StyleSheet.create({
   container: {
-    height: ms(20),
     width: ms(341),
-
     alignSelf: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',

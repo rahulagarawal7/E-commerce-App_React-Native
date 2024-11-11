@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.secondaryBgColor,
     alignSelf: 'center',
     borderRadius: 20,
-
     justifyContent: 'center',
   },
   box: {
@@ -42,6 +41,7 @@ const styles = StyleSheet.create({
   searchImage: {
     height: ms(16),
     width: ms(16),
+    alignSelf: 'center',
   },
   searchText: {
     marginHorizontal: 10,

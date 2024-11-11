@@ -20,8 +20,8 @@ const DropDown: React.FC<DropDownProps> = ({closeDropDown, show}) => {
       if (savedLang) {
         const selectedLang = languages.find(lang => lang.code === savedLang);
         if (selectedLang) {
-          setOption(selectedLang.name); // Set the display option to the saved language
-          i18n.changeLanguage(savedLang); // Change the i18n language
+          setOption(selectedLang.name);
+          i18n.changeLanguage(savedLang);
         }
       }
     };
@@ -38,7 +38,7 @@ const DropDown: React.FC<DropDownProps> = ({closeDropDown, show}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.box} onPress={() => closeDropDown()}>
-        <Text>{option}</Text>
+        <Text style={styles.textOption}>{option}</Text>
         <Image
           source={show ? UpArrowLogo : DownArrowLogo}
           style={styles.icon}
@@ -48,6 +48,7 @@ const DropDown: React.FC<DropDownProps> = ({closeDropDown, show}) => {
         <View style={styles.dropBox}>
           {languages?.map(lang => (
             <Text
+              style={styles.textOption}
               key={lang.code}
               onPress={() => handleSelect(lang.name, lang.code)}>
               {t(lang.name)}
@@ -86,6 +87,11 @@ const styles = StyleSheet.create({
     paddingVertical: ms(5),
     position: 'absolute',
     zIndex: 1,
+  },
+  textOption: {
+    color: colors.textColor,
+    fontSize: 15,
+    fontWeight: '500',
   },
   dropText: {
     paddingVertical: ms(5),

@@ -13,6 +13,7 @@ import {
   ProductCardList,
   SearchBar,
 } from '../../component';
+import {colors} from '../../utils';
 
 const Home = ({navigation}) => {
   const [show, setShow] = useState<boolean>(false);
@@ -67,12 +68,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   containerBox: {
-    gap: 35,
+    gap: 20,
   },
   box: {
     gap: 10,
   },
   hederBox: {
-    gap: 20,
+    gap: 30,
   },
 });

@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
     tintColor: colors.primaryBgColor,
   },
   circle: {
-    height: ms(40),
-    width: ms(40),
+    height: ms(35),
+    width: ms(35),
     borderRadius: 20,
     backgroundColor: colors.tintColor,
     justifyContent: 'center',
@@ -33,8 +33,5 @@ const styles = StyleSheet.create({
     tintColor: colors.textColor,
     height: ms(22),
     width: ms(22),
-  },
-  box: {
-    marginTop: 10,
   },
 });
