@@ -5,17 +5,15 @@ import {
   Cart,
   CategoryList,
   Help,
-  Login,
   Payment,
   Search,
   SeeAllCategories,
-  SignUP,
   Support,
   UserProfile,
   Wishlist,
+  Language,
 } from '../../../screen';
 import {screenNames} from '../../../utils/constants';
-import BottomTabNavigator from '../bottomTabNavigator/BottomTabNavigator';
 
 type StackScreenType = {
   id: number;
@@ -36,6 +34,7 @@ const StackScreen: StackScreenType[] = [
   {id: 12, name: screenNames.addPayment, component: AddPayment},
   {id: 13, name: screenNames.cart, component: Cart},
   {id: 14, name: screenNames.search, component: Search},
+  {id: 15, name: screenNames.language, component: Language},
 ];
 
 export default StackScreen;

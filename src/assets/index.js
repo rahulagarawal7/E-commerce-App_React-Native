@@ -31,3 +31,5 @@ export {default as DummyImage} from './dummy/cardImg.png';
 export {default as FacebookLogo} from './logo/Facebook.png';
 export {default as GoogleLogo} from './logo/Google.png';
 export {default as AppleLogo} from './logo/Apple.png';
+export {default as NightIcon} from './icons/night.png';
+export {default as DayIcon} from './icons/brightness.png';

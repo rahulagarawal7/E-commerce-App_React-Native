@@ -6,7 +6,6 @@ export {default as cartCard} from './cartCard/CartCard';
 export {default as CategoriesCard} from './categoriesCard/CategoriesCard';
 export {default as CenterHeading} from './centerHeading/CenterHeading';
 export {default as ChangeTheme} from './changeTheme/ChangeTheme';
-export {default as DropDown} from './dropDown/DropDown';
 export {default as EmptyPage} from './emptyPage/EmptyPage';
 export {default as Header} from './header/Header';
 export {default as HeadingText} from './headingText/HeadingText';

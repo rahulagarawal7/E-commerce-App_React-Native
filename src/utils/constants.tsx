@@ -12,9 +12,9 @@ export const colors: {[key: string]: string} = {
   secondaryBgColor: '#f4f4f4',
   cardBgColor: '#f3f3f3',
   primaryBgColor: '#ffffff',
-  radioButtonBgColor: '#342f3f',
+  radioButtonBgColor: '#ada8a8',
 };
-1234;
+
 export const languages = [
   {name: 'english', code: 'en'},
   {name: 'hindi', code: 'hi'},
@@ -70,4 +70,5 @@ export const screenNames = {
   profile: 'Profile',
   order: 'Order',
   homeStack: 'HomeStack',
+  language: 'Language',
 };

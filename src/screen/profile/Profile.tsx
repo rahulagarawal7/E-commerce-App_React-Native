@@ -18,6 +18,7 @@ const profileButtonNames: profileButtonNames[] = [
   {id: 3, name: 'payment', screenName: screenNames.payment},
   {id: 4, name: 'help', screenName: screenNames.help},
   {id: 5, name: 'support', screenName: screenNames.support},
+  {id: 6, name: 'language', screenName: screenNames.language},
 ];
 
 interface profileButtonNames {

@@ -16,3 +16,4 @@ export {default as CategoryList} from './categoryList/CategoryList.tsx';
 export {default as AddPayment} from './addPayment/AddPayment.tsx';
 export {default as Order} from './order/Order.tsx';
 export {default as Search} from './search/Search.tsx';
+export {default as Language} from './language/Language.tsx';

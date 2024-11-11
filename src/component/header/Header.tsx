@@ -2,24 +2,19 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {CartLogo, UserLogo} from '../../assets';
 import {ms} from '../../utils/scale';
-import DropDown from '../dropDown/DropDown';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {screenNames} from '../../utils/constants';
 import {RootStackParamList} from '../../navigation/types';
+import ChangeTheme from '../changeTheme/ChangeTheme';
 
-interface HeaderProps {
-  closeDropDown: Function;
-  show: boolean;
-}
-
-const Header: React.FC<HeaderProps> = ({closeDropDown, show}) => {
+const Header: React.FC = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <View style={styles.profileImage}>
         <Image source={UserLogo} style={styles.userImage} />
       </View>
-      <DropDown closeDropDown={closeDropDown} show={show} />
+      <ChangeTheme />
       <TouchableOpacity
         onPress={() => {
           navigation.navigate(screenNames.cart, undefined);
