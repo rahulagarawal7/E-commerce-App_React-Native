@@ -2,13 +2,15 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {BackButton, Button, EmptyPage, InputBox} from '../../component';
 import {colors, ms} from '../../utils';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {EmptyPaymentLogo} from '../../assets';
+import {RootStackParamList} from '../../navigation/types';
+import {screenNames} from '../../utils/constants';
 
 const Payment = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const addAddress = () => {
-    navigation.navigate('addPayment');
+    navigation.navigate(screenNames.addPayment, undefined);
   };
 
   return (

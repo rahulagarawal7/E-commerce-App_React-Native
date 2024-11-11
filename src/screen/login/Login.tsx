@@ -3,13 +3,15 @@ import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button, InputBox} from '../../component';
 import {AppleLogo, FacebookLogo, GoogleLogo} from '../../assets';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {t} from 'i18next';
+import {RootStackParamList} from '../../navigation/types';
+import {screenNames} from '../../utils/constants';
 
 const Login = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const handleLogin = () => {
-    navigation.navigate('BottomTab');
+    navigation.navigate(screenNames.bottomTab, undefined);
   };
   return (
     <ScrollView style={styles.container}>
@@ -23,7 +25,7 @@ const Login = () => {
         {t(`don't have account`)}?{' '}
         <Text
           style={styles.textOne}
-          onPress={() => navigation.navigate('SignUP')}>
+          onPress={() => navigation.navigate(screenNames.signUp, undefined)}>
           {t('create one')}
         </Text>{' '}
       </Text>

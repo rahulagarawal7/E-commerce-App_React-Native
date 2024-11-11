@@ -3,10 +3,17 @@ import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button, InputBox} from '../../component';
 import {t} from 'i18next';
+import {NavigationProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
+import {screenNames} from '../../utils/constants';
 
-const SignUp = ({navigation}) => {
+interface SignUpProps {
+  navigation: NavigationProp<RootStackParamList>;
+}
+
+const SignUp: React.FC<SignUpProps> = ({navigation}) => {
   const handleLogin = () => {
-    navigation.navigate('BottomTab');
+    navigation.navigate(screenNames.bottomTab);
   };
   return (
     <ScrollView style={styles.container}>

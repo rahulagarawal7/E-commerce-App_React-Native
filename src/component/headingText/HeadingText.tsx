@@ -1,13 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {t} from 'i18next';
+import {RootStackParamList} from '../../navigation/types';
 
 interface HeadingTextProps {
   primaryText: string;
   secondaryText: string;
-  screenName?: string;
+  screenName?: keyof RootStackParamList;
 }
 
 const HeadingText: React.FC<HeadingTextProps> = ({
@@ -15,13 +16,13 @@ const HeadingText: React.FC<HeadingTextProps> = ({
   secondaryText,
   screenName,
 }) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <Text style={styles.headingText}>{t(primaryText)}</Text>
       <Text
         style={styles.seeAllText}
-        onPress={() => navigation.navigate(screenName)}>
+        onPress={() => navigation.navigate(screenName as string, undefined)}>
         {t(secondaryText)}
       </Text>
     </View>

@@ -48,3 +48,21 @@ export const categoriesList = [
     categoriesName: 'bag',
   },
 ];
+
+export const screenNames = {
+  login: 'Login',
+  signUp: 'SignUp',
+  bottomTab: 'BottomTab',
+  address: 'Address',
+  wishlist: 'Wishlist',
+  payment: 'Payment',
+  help: 'Help',
+  support: 'Support',
+  userProfile: 'UserProfile',
+  addAddress: 'AddAddress',
+  seeAllCategories: 'SeeAllCategories',
+  categoryList: 'CategoryList',
+  addPayment: 'AddPayment',
+  cart: 'Cart',
+  search: 'Search',
+};

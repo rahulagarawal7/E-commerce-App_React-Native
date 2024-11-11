@@ -1,12 +1,15 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
-import {categoriesList} from '../../utils/constants';
-import {t} from 'i18next';
-import {useNavigation} from '@react-navigation/native';
+import {categoriesList, screenNames} from '../../utils/constants';
+import {useTranslation} from 'react-i18next';
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 
-const CategoriesCard = () => {
-  const navigation = useNavigation();
+const CategoriesCard: React.FC = () => {
+  const {t} = useTranslation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
   return (
     <View style={styles.container}>
       {categoriesList.map(category => (
@@ -14,7 +17,9 @@ const CategoriesCard = () => {
           key={category.id}
           style={styles.box}
           onPress={() =>
-            navigation.navigate('categoryList', {name: category.categoriesName})
+            navigation.navigate(screenNames.categoryList, {
+              name: category.categoriesName,
+            })
           }>
           <Image source={category.categoriesImage} style={styles.image} />
           <Text style={styles.categoriesNameText}>

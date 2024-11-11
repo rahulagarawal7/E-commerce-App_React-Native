@@ -4,23 +4,24 @@ import {colors, ms} from '../../utils';
 import {BackArrowLogo} from '../../assets';
 import {useTranslation} from 'react-i18next';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 
 interface AddButtonCardProps {
   title: string;
+  screenName: keyof RootStackParamList;
 }
 
-const AddButtonCard: React.FC<AddButtonCardProps> = ({title}) => {
+const AddButtonCard: React.FC<AddButtonCardProps> = ({title, screenName}) => {
   const {t} = useTranslation();
 
-  const navigation = useNavigation<NavigationProp<AddButtonCardProps>>();
-  const handlePressed = (name: string) => {
-    navigation.navigate(name as keyof AddButtonCardProps);
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
+  const handlePressed = () => {
+    navigation.navigate(screenName as string, undefined);
   };
 
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => handlePressed(title)}>
+    <TouchableOpacity style={styles.container} onPress={() => handlePressed()}>
       <Text style={styles.text}>{t(title)}</Text>
       <Image source={BackArrowLogo} style={styles.image} />
     </TouchableOpacity>

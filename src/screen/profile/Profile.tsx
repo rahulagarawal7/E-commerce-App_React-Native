@@ -3,6 +3,8 @@ import React from 'react';
 import {UserLogo} from '../../assets';
 import {AddButtonCard, NameAddressCard} from '../../component';
 import {colors, ms} from '../../utils';
+import {screenNames} from '../../utils/constants';
+import Support from '../support/Support';
 
 const userInfo = {
   name: 'rahul Agrawal',
@@ -11,16 +13,17 @@ const userInfo = {
 };
 
 const profileButtonNames: profileButtonNames[] = [
-  {id: 1, name: 'address'},
-  {id: 2, name: 'wishlist'},
-  {id: 3, name: 'payment'},
-  {id: 4, name: 'help'},
-  {id: 5, name: 'support'},
+  {id: 1, name: 'address', screenName: screenNames.address},
+  {id: 2, name: 'wishlist', screenName: screenNames.wishlist},
+  {id: 3, name: 'payment', screenName: screenNames.payment},
+  {id: 4, name: 'help', screenName: screenNames.help},
+  {id: 5, name: 'support', screenName: screenNames.support},
 ];
 
 interface profileButtonNames {
   id: number;
   name: string;
+  screenName: string;
 }
 
 const Profile = () => {
@@ -34,7 +37,11 @@ const Profile = () => {
       <NameAddressCard userInfo={userInfo} />
       <View style={styles.btnBox}>
         {profileButtonNames.map(btn => (
-          <AddButtonCard key={btn.id} title={btn.name} />
+          <AddButtonCard
+            key={btn.id}
+            title={btn.name}
+            screenName={btn.screenName}
+          />
         ))}
       </View>
     </ScrollView>

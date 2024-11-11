@@ -2,7 +2,9 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
 import {useTranslation} from 'react-i18next';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {screenNames} from '../../utils/constants';
+import {RootStackParamList} from '../../navigation/types';
 
 interface NameAddressCardProps {
   userInfo: UserInfo;
@@ -14,7 +16,7 @@ interface UserInfo {
 }
 
 const NameAddressCard: React.FC<NameAddressCardProps> = ({userInfo}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   const {t} = useTranslation();
   return (
     <View style={styles.container}>
@@ -26,7 +28,9 @@ const NameAddressCard: React.FC<NameAddressCardProps> = ({userInfo}) => {
       <View>
         <Text
           style={styles.editText}
-          onPress={() => navigation.navigate('userProfile')}>
+          onPress={() =>
+            navigation.navigate(screenNames.userProfile, undefined)
+          }>
           {t('edit')}
         </Text>
       </View>

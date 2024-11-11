@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import {
   View,
   TouchableWithoutFeedback,
@@ -5,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
 } from 'react-native';
-import React, {useState} from 'react';
 import {
   CategoriesCard,
   Header,
@@ -13,10 +13,19 @@ import {
   ProductCardList,
   SearchBar,
 } from '../../component';
-import {colors} from '../../utils';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../navigation/types';
+import {screenNames} from '../../utils/constants';
 
-const Home = ({navigation}) => {
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+type Props = {
+  navigation: HomeScreenNavigationProp;
+};
+
+const Home: React.FC<Props> = ({navigation}) => {
   const [show, setShow] = useState<boolean>(false);
+
   const closeDropDown = (value: boolean) => {
     setShow(value ? false : !show);
   };
@@ -26,7 +35,8 @@ const Home = ({navigation}) => {
       <TouchableWithoutFeedback onPress={() => closeDropDown(true)}>
         <View style={styles.containerBox}>
           <Header closeDropDown={closeDropDown} show={show} />
-          <TouchableOpacity onPress={() => navigation.navigate('search')}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate(screenNames.search)}>
             <SearchBar placeholder="search" />
           </TouchableOpacity>
 
@@ -61,6 +71,7 @@ const Home = ({navigation}) => {
 };
 
 export default Home;
+
 const styles = StyleSheet.create({
   container: {
     height: '100%',

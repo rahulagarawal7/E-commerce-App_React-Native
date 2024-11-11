@@ -3,8 +3,14 @@ import React from 'react';
 import {BackButton, ShopByCategoriesCard} from '../../component';
 import {colors, ms} from '../../utils';
 import {categoriesList} from '../../utils/constants';
+import {NavigationProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 
-const SeeAllCategories = ({navigation}) => {
+interface SeeAllCategoriesProps {
+  navigation: NavigationProp<RootStackParamList>;
+}
+
+const SeeAllCategories: React.FC<SeeAllCategoriesProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <BackButton heading="back" />

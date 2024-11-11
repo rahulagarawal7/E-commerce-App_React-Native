@@ -5,70 +5,40 @@ import {
   Cart,
   CategoryList,
   Help,
+  Login,
   Payment,
   Search,
   SeeAllCategories,
+  SignUP,
   Support,
   UserProfile,
   Wishlist,
 } from '../../screen';
+import {screenNames} from '../../utils/constants';
+import BottomTabNavigator from '../bottomTabNavigator/BottomTabNavigator';
 
-const StackScreen = [
-  {id: 1, name: 'address', component: Address},
-  {
-    id: 2,
-    name: 'wishlist',
-    component: Wishlist,
-  },
-  {
-    id: 3,
-    name: 'payment',
-    component: Payment,
-  },
-  {
-    id: 4,
-    name: 'help',
-    component: Help,
-  },
-  {
-    id: 5,
-    name: 'support',
-    component: Support,
-  },
-  {
-    id: 6,
-    name: 'userProfile',
-    component: UserProfile,
-  },
-  {
-    id: 7,
-    name: 'addAddress',
-    component: AddAddress,
-  },
-  {
-    id: 8,
-    name: 'seeAllCategories',
-    component: SeeAllCategories,
-  },
-  {
-    id: 9,
-    name: 'categoryList',
-    component: CategoryList,
-  },
-  {
-    id: 10,
-    name: 'addPayment',
-    component: AddPayment,
-  },
-  {
-    id: 11,
-    name: 'cart',
-    component: Cart,
-  },
-  {
-    id: 12,
-    name: 'search',
-    component: Search,
-  },
+type StackScreenType = {
+  id: number;
+  name: string;
+  component: React.ComponentType<any>;
+};
+
+const StackScreen: StackScreenType[] = [
+  {id: 0, name: screenNames.bottomTab, component: BottomTabNavigator},
+  {id: 1, name: screenNames.login, component: Login},
+  {id: 2, name: screenNames.signUp, component: SignUP},
+  {id: 3, name: screenNames.address, component: Address},
+  {id: 4, name: screenNames.wishlist, component: Wishlist},
+  {id: 5, name: screenNames.payment, component: Payment},
+  {id: 6, name: screenNames.help, component: Help},
+  {id: 7, name: screenNames.support, component: Support},
+  {id: 8, name: screenNames.userProfile, component: UserProfile},
+  {id: 9, name: screenNames.addAddress, component: AddAddress},
+  {id: 10, name: screenNames.seeAllCategories, component: SeeAllCategories},
+  {id: 11, name: screenNames.categoryList, component: CategoryList},
+  {id: 12, name: screenNames.addPayment, component: AddPayment},
+  {id: 13, name: screenNames.cart, component: Cart},
+  {id: 14, name: screenNames.search, component: Search},
 ];
+
 export default StackScreen;

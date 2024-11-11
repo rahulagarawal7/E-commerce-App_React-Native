@@ -3,8 +3,14 @@ import React from 'react';
 import {BackButton} from '../../component';
 import {colors, ms} from '../../utils';
 import {t} from 'i18next';
+import {RouteProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 
-const CategoryList = ({route}) => {
+interface CategoryListProps {
+  route: RouteProp<RootStackParamList, 'categoryList'>;
+}
+
+const CategoryList: React.FC<CategoryListProps> = ({route}) => {
   return (
     <View style={styles.container}>
       <BackButton heading="back" />

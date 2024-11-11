@@ -11,7 +11,7 @@ interface BackButtonProps {
   searchBox?: boolean;
 }
 
-const BackButton: React.FC<BackButtonProps> = ({heading, searchBox}) => {
+const BackButton: React.FC<BackButtonProps> = ({heading = '', searchBox}) => {
   const navigation = useNavigation();
 
   return (

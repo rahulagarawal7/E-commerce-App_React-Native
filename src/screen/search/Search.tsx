@@ -8,10 +8,16 @@ import {
 import React from 'react';
 import {colors, ms} from '../../utils';
 import {BackButton, SearchBar, ShopByCategoriesCard} from '../../component';
-import {categoriesList} from '../../utils/constants';
+import {categoriesList, screenNames} from '../../utils/constants';
 import {t} from 'i18next';
+import {NavigationProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 
-const Search = ({navigation}) => {
+interface SearchProps {
+  navigation: NavigationProp<RootStackParamList>;
+}
+
+const Search: React.FC<SearchProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <BackButton heading="back" />
@@ -23,7 +29,7 @@ const Search = ({navigation}) => {
             <TouchableOpacity
               key={category.id}
               onPress={() => {
-                navigation.navigate('categoryList', {
+                navigation.navigate(screenNames.categoryList, {
                   name: category.categoriesName,
                 });
               }}>

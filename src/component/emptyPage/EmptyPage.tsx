@@ -1,16 +1,24 @@
-import {Image, ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import React from 'react';
 import {colors, ms} from '../../utils';
 import {Button} from '../../component';
 import {t} from 'i18next';
-import {useNavigation} from '@react-navigation/native';
-
+import {useNavigation, NavigationProp} from '@react-navigation/native';
+import {RootStackParamList} from '../../navigation/types';
 interface EmptyPageProps {
   title: string;
   image: ImageSourcePropType;
   btnName: string;
-  style?: object;
-  navigationScreeName?: string;
+  style?: StyleProp<ViewStyle>;
+  navigationScreeName?: keyof RootStackParamList;
   btn?: boolean;
 }
 
@@ -22,10 +30,14 @@ const EmptyPage: React.FC<EmptyPageProps> = ({
   btn,
   navigationScreeName,
 }) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
   const handleSubmit = () => {
-    navigation.navigate(navigationScreeName);
+    if (navigationScreeName) {
+      navigation.navigate(navigationScreeName as string, undefined);
+    }
   };
+
   return (
     <View style={[styles.container, style]}>
       <Image source={image} style={styles.image} />

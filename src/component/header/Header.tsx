@@ -3,7 +3,9 @@ import React from 'react';
 import {CartLogo, UserLogo} from '../../assets';
 import {ms} from '../../utils/scale';
 import DropDown from '../dropDown/DropDown';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {screenNames} from '../../utils/constants';
+import {RootStackParamList} from '../../navigation/types';
 
 interface HeaderProps {
   closeDropDown: Function;
@@ -11,7 +13,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({closeDropDown, show}) => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
   return (
     <View style={styles.container}>
       <View style={styles.profileImage}>
@@ -20,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({closeDropDown, show}) => {
       <DropDown closeDropDown={closeDropDown} show={show} />
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate('cart');
+          navigation.navigate(screenNames.cart, undefined);
         }}>
         <Image style={styles.cartLogo} source={CartLogo} />
       </TouchableOpacity>
