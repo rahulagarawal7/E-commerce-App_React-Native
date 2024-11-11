@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import i18next, {initI18n} from './src/i18n/i18n.config';
 import {I18nextProvider} from 'react-i18next';
-import {RootNavigator} from './src/navigation';
+import RootNavigator from './src/navigation/RootNavigator';
 
 const Stack = createNativeStackNavigator();
 

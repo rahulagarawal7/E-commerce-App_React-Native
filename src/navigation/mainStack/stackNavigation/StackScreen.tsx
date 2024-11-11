@@ -13,8 +13,8 @@ import {
   Support,
   UserProfile,
   Wishlist,
-} from '../../screen';
-import {screenNames} from '../../utils/constants';
+} from '../../../screen';
+import {screenNames} from '../../../utils/constants';
 import BottomTabNavigator from '../bottomTabNavigator/BottomTabNavigator';
 
 type StackScreenType = {
@@ -24,9 +24,6 @@ type StackScreenType = {
 };
 
 const StackScreen: StackScreenType[] = [
-  {id: 0, name: screenNames.bottomTab, component: BottomTabNavigator},
-  {id: 1, name: screenNames.login, component: Login},
-  {id: 2, name: screenNames.signUp, component: SignUP},
   {id: 3, name: screenNames.address, component: Address},
   {id: 4, name: screenNames.wishlist, component: Wishlist},
   {id: 5, name: screenNames.payment, component: Payment},

@@ -14,7 +14,7 @@ export const colors: {[key: string]: string} = {
   primaryBgColor: '#ffffff',
   radioButtonBgColor: '#342f3f',
 };
-
+1234;
 export const languages = [
   {name: 'english', code: 'en'},
   {name: 'hindi', code: 'hi'},
@@ -65,4 +65,9 @@ export const screenNames = {
   addPayment: 'AddPayment',
   cart: 'Cart',
   search: 'Search',
+  home: 'Home',
+  notification: 'Notification',
+  profile: 'Profile',
+  order: 'Order',
+  homeStack: 'HomeStack',
 };
