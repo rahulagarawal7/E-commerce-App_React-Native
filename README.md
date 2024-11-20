@@ -77,3 +77,14 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+in this project i have defined the navigation in two stacks 
+1. AuthStack folder - in this i have given all the stacks related to auth 
+2. MainStack - in this i have defined it as 
+     1. BottomTabNavigator - in this i have given all the bottomTab and in each bottom Tab i have given all the stack screen related to to the perticullar bottom tab  
+     2. StackNavigator - it the common screen which are present in both bottom and stack screens 
+
+
+in RootNavigation i have given all the navigation in this root file 
+

@@ -2,6 +2,7 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {EmptyPage} from '../../component';
 import {BellEmptyLogo} from '../../assets';
+import {screenNames} from '../../utils/constants';
 
 const Notification = () => {
   return (
@@ -12,7 +13,7 @@ const Notification = () => {
           image={BellEmptyLogo}
           title="no notification yet"
           btn={true}
-          navigationScreeName="seeAllCategories"
+          navigationScreeName={screenNames.seeAllCategories}
         />
       </View>
     </ScrollView>

@@ -72,3 +72,7 @@ export const screenNames = {
   homeStack: 'HomeStack',
   language: 'Language',
 };
+
+export const API_ROUTES = {
+  getAllProducts: '/products',
+};

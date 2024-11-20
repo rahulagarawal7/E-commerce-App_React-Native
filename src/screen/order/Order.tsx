@@ -2,6 +2,7 @@ import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {EmptyPage} from '../../component';
 import {CheckOutEmptyLogo} from '../../assets';
+import {screenNames} from '../../utils/constants';
 
 const Order = () => {
   return (
@@ -11,7 +12,7 @@ const Order = () => {
           btnName="explore categories"
           image={CheckOutEmptyLogo}
           title="no order yet"
-          navigationScreeName="seeAllCategories"
+          navigationScreeName={screenNames.seeAllCategories}
           btn={true}
         />
       </View>

@@ -4,6 +4,9 @@ import {useTranslation} from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {languages, colors, ms} from '../../utils';
 import {BackButton} from '../../component';
+import RNRestart from 'react-native-restart';
+import {useDispatch} from 'react-redux';
+import {changeLang} from '../../redux/slices/LanguageSlice';
 
 interface LanguageType {
   name: string;
@@ -14,6 +17,8 @@ const Language: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>('english');
   const [languageChanged, setLanguageChanged] = useState<boolean>(false);
   const {t, i18n} = useTranslation();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const loadLanguage = async () => {
@@ -44,6 +49,8 @@ const Language: React.FC = () => {
 
     try {
       await AsyncStorage.setItem('selectedLanguage', code);
+      dispatch(changeLang(name));
+      RNRestart.Restart();
     } catch (error) {
       console.error('Error saving language to storage:', error);
     }

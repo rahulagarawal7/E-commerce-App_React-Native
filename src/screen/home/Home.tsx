@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, StyleSheet, ScrollView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  StatusBar,
+} from 'react-native';
 import {
   CategoriesCard,
   Header,
@@ -10,6 +16,7 @@ import {
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/types';
 import {screenNames} from '../../utils/constants';
+import {useAppSelector} from '../../redux/store/store';
 
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -18,8 +25,11 @@ type Props = {
 };
 
 const Home: React.FC<Props> = ({navigation}) => {
+  const products = useAppSelector(store => store?.products);
+  console.log('products--->', products);
   return (
     <ScrollView style={styles.container}>
+      <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
       <View style={styles.containerBox}>
         <Header />
         <TouchableOpacity
@@ -31,7 +41,7 @@ const Home: React.FC<Props> = ({navigation}) => {
           <HeadingText
             primaryText="categories"
             secondaryText="see all"
-            screenName="seeAllCategories"
+            screenName={screenNames.seeAllCategories}
           />
           <CategoriesCard />
         </View>
@@ -39,7 +49,7 @@ const Home: React.FC<Props> = ({navigation}) => {
           <HeadingText
             primaryText="top selling"
             secondaryText="see all"
-            screenName="categoryList"
+            screenName={screenNames.categoryList}
           />
           <ProductCardList />
         </View>
@@ -47,7 +57,7 @@ const Home: React.FC<Props> = ({navigation}) => {
           <HeadingText
             primaryText="new in"
             secondaryText="see all"
-            screenName="categoryList"
+            screenName={screenNames.categoryList}
           />
           <ProductCardList />
         </View>

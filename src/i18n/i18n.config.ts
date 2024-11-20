@@ -9,10 +9,21 @@ const resources = {
   hi: { translation: hi },
   fr: { translation: fr },
 };
+
 const loadLanguage = async () => {
   const lang = await AsyncStorage.getItem('selectedLanguage');
   return lang || 'en'; 
 };
+
+export const changeLanguage = async (language:string) => {
+  await AsyncStorage.setItem('selectedLanguage', language);
+  i18next.changeLanguage(language);
+  
+  
+};
+
+
+
 
 export const initI18n = async () => {
   const defaultLang = await loadLanguage();

@@ -3,6 +3,7 @@ import React from 'react';
 import {BackButton, EmptyPage} from '../../component';
 import {CartEmptyLogo} from '../../assets';
 import {colors} from '../../utils';
+import {screenNames} from '../../utils/constants';
 
 const Cart = () => {
   return (
@@ -15,7 +16,7 @@ const Cart = () => {
             image={CartEmptyLogo}
             title="no item added yet"
             btn={true}
-            navigationScreeName="seeAllCategories"
+            navigationScreeName={screenNames.seeAllCategories}
           />
         </View>
       </ScrollView>
