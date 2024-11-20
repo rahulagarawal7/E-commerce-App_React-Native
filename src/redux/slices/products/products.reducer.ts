@@ -1,13 +1,9 @@
 import {createSlice , SerializedError} from '@reduxjs/toolkit';
 import { getAllProductsActions } from './products.actions';
-import { ErrorResponse, ProductTypes } from '../../../utils/types';
+import { ErrorResponse, InitialProductsStateTypes, ProductTypes } from '../../../utils/types';
 
 
-interface InitialProductsStateTypes {
-   products:ProductTypes[],
-   loading:boolean,
-   error: ErrorResponse | null
-}
+
 
 const mapSerializedErrorToApiError=(error:SerializedError):ErrorResponse=>{
      return{
@@ -33,7 +29,7 @@ const productsSlice = createSlice({
    })
    builder.addCase(getAllProductsActions.fulfilled,(state,action)=>{
     state.loading=false
-    state.products=action.payload
+    state.products=[...state.products,...action.payload]
  })
  builder.addCase(getAllProductsActions.rejected,(state,action)=>{
     state.loading=false,

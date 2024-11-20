@@ -18,3 +18,4 @@ export {default as ProductCard} from './productCard/ProductCard';
 export {default as ShopByCategoriesCard} from './shopByCategoriesCard/ShopByCategoriesCard';
 export {default as SearchBar} from './searchBar/SearchBar';
 export {default as ProductCardList} from './productCardList/ProductCardList';
+export {default as SeeAllProductList} from './seeAllProductList/SeeAllProductList';

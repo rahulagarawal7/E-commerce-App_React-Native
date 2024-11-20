@@ -17,7 +17,7 @@ const CategoriesCard: React.FC = () => {
           key={category.id}
           style={styles.box}
           onPress={() =>
-            navigation.navigate(screenNames.categoryList, {
+            navigation.navigate(screenNames.categoriesWiseList, {
               name: category.categoriesName,
             })
           }>

@@ -17,3 +17,5 @@ export {default as AddPayment} from './addPayment/AddPayment.tsx';
 export {default as Order} from './order/Order.tsx';
 export {default as Search} from './search/Search.tsx';
 export {default as Language} from './language/Language.tsx';
+export {default as CategoriesWiseList} from './categoriesWiseList/CategoriesWiseList.tsx';
+export {default as ProductDetails} from './productDetails/ProductDetails.tsx';

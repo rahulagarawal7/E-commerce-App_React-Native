@@ -71,6 +71,8 @@ export const screenNames = {
   order: 'Order',
   homeStack: 'HomeStack',
   language: 'Language',
+  categoriesWiseList: 'CategoriesWiseList',
+  productDetails: 'ProductDetails',
 };
 
 export const API_ROUTES = {

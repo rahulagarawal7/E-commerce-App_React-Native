@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -17,16 +17,24 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/types';
 import {screenNames} from '../../utils/constants';
 import {useAppSelector} from '../../redux/store/store';
-
+import {ProductTypes} from '../../utils/types';
 type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
+interface ProductTypesList {
+  products: ProductTypes[];
+}
+
 const Home: React.FC<Props> = ({navigation}) => {
-  const products = useAppSelector(store => store?.products);
-  console.log('products--->', products);
+  const [products, setProducts] = useState<ProductTypesList>();
+  const data = useAppSelector(store => store?.products);
+  useEffect(() => {
+    setProducts(data?.products);
+  }, [data]);
+
   return (
     <ScrollView style={styles.container}>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
@@ -42,6 +50,7 @@ const Home: React.FC<Props> = ({navigation}) => {
             primaryText="categories"
             secondaryText="see all"
             screenName={screenNames.seeAllCategories}
+            seeAllList={products}
           />
           <CategoriesCard />
         </View>
@@ -50,16 +59,18 @@ const Home: React.FC<Props> = ({navigation}) => {
             primaryText="top selling"
             secondaryText="see all"
             screenName={screenNames.categoryList}
+            seeAllList={products}
           />
-          <ProductCardList />
+          <ProductCardList productList={products} />
         </View>
         <View style={styles.hederBox}>
           <HeadingText
             primaryText="new in"
             secondaryText="see all"
             screenName={screenNames.categoryList}
+            seeAllList={products}
           />
-          <ProductCardList />
+          <ProductCardList productList={products} />
         </View>
       </View>
     </ScrollView>

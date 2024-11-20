@@ -13,6 +13,8 @@ export type RootStackParamList = {
   categoryList: { name: string }; 
   addPayment: undefined;
   cart: undefined;
+  productDetails:undefined;
+  categoriesWiseList:undefined
   search: undefined;
   [key: string]: undefined | { name: string }; 
 };

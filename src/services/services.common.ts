@@ -23,7 +23,7 @@ axiosRetry(apiClient,{
 
 
 const handleError=(e:AxiosError<ErrorResponseData>,url:string)=>{
-     console.log("Error on URL----->",url,e)
+
      const statusCode = e?.response?.status || "unknown"
      const errorMessage=e?.response?.data?.error || e.message || "An unknown error occurred"
 

@@ -1,28 +1,26 @@
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {BackButton, ProductCardList, SeeAllProductList} from '../../component';
+import {BackButton} from '../../component';
 import {colors, ms} from '../../utils';
 import {t} from 'i18next';
 import {RouteProp} from '@react-navigation/native';
 import {RootStackParamList} from '../../navigation/types';
 
-interface CategoryListProps {
+interface CategoryWiseListProps {
   route: RouteProp<RootStackParamList, 'categoryList'>;
 }
 
-const CategoryList: React.FC<CategoryListProps> = ({route}) => {
+const CategoryWiseList: React.FC<CategoryWiseListProps> = ({route}) => {
   return (
     <View style={styles.container}>
       <BackButton heading="back" />
       <Text style={styles.headingText}>{t(route?.params?.name)}</Text>
-      <View style={styles.list}>
-        <SeeAllProductList productList={route?.params?.data} />
-      </View>
+      <View style={styles.list}></View>
     </View>
   );
 };
 
-export default CategoryList;
+export default CategoryWiseList;
 
 const styles = StyleSheet.create({
   headingText: {

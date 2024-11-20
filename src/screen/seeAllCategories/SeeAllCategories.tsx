@@ -2,7 +2,7 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {BackButton, ShopByCategoriesCard} from '../../component';
 import {colors, ms} from '../../utils';
-import {categoriesList} from '../../utils/constants';
+import {categoriesList, screenNames} from '../../utils/constants';
 import {NavigationProp} from '@react-navigation/native';
 import {RootStackParamList} from '../../navigation/types';
 
@@ -19,7 +19,7 @@ const SeeAllCategories: React.FC<SeeAllCategoriesProps> = ({navigation}) => {
           <TouchableOpacity
             key={category.id}
             onPress={() => {
-              navigation.navigate('categoryList', {
+              navigation.navigate(screenNames.categoriesWiseList, {
                 name: category.categoriesName,
               });
             }}>

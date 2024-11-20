@@ -2,6 +2,10 @@ export  interface PaginationTypes{
     page:string
     limit:string
 }
+
+export interface CategoryType{
+    categoryName:string
+}
 export interface ProductTypes{
         id?: number;
         title?: string;
@@ -16,7 +20,11 @@ export interface ProductTypes{
         discount?: number;
       }
       
-
+   export   interface InitialProductsStateTypes {
+        products:ProductTypes[],
+        loading:boolean,
+        error: ErrorResponse | null
+     }
    export interface GetProductsResponseTypes{
          status:string
         message:string

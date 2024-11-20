@@ -15,8 +15,7 @@ const App = () => {
   const [isI18nInitialized, setIsI18nInitialized] = useState(false);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    dispatch(getAllProductsActions({limit: '2', page: '2'}));
-
+    dispatch(getAllProductsActions({limit: '9', page: '2'}));
     initI18n().then(() => setIsI18nInitialized(true));
   }, [isI18nInitialized]);
 
