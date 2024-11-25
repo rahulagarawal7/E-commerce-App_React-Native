@@ -1,8 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit';
 import productsReducer from '../slices/products/products.reducer';
+import categorySlice from '../slices/category/categorySlice';
+import wishListSlice from '../slices/wishList/wishList';
 export const store = configureStore({
   reducer: {
     products: productsReducer,
+    category: categorySlice,
+    wishList: wishListSlice,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

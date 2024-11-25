@@ -25,27 +25,27 @@ export const categoriesList = [
   {
     id: 1,
     categoriesImage: CategoriesImage1,
-    categoriesName: 'hoodies',
+    categoriesName: 'tv',
   },
   {
     id: 2,
     categoriesImage: CategoriesImage2,
-    categoriesName: 'shorts',
+    categoriesName: 'audio',
   },
   {
     id: 3,
     categoriesImage: CategoriesImage3,
-    categoriesName: 'accessories',
+    categoriesName: 'laptop',
   },
   {
     id: 4,
     categoriesImage: CategoriesImage4,
-    categoriesName: 'shoes',
+    categoriesName: 'mobile',
   },
   {
     id: 5,
     categoriesImage: CategoriesImage5,
-    categoriesName: 'bag',
+    categoriesName: 'gaming',
   },
 ];
 
@@ -73,6 +73,7 @@ export const screenNames = {
   language: 'Language',
   categoriesWiseList: 'CategoriesWiseList',
   productDetails: 'ProductDetails',
+  finalPayment: 'FinalPayment',
 };
 
 export const API_ROUTES = {

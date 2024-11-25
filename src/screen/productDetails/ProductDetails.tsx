@@ -1,49 +1,125 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import React, {useState} from 'react';
+import {Alert, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import {BackButton, Button} from '../../component';
 import {colors, ms} from '../../utils';
-import {likeLogo, likeRedLogo} from '../../assets';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {RootStackParamList} from '../../navigation/types';
+import {RouteProp} from '@react-navigation/native';
+import {ProductTypes} from '../../utils/types';
 
-const ProductDetails = ({route}) => {
+interface ProductDetailsProps {
+  route: RouteProp<RootStackParamList, 'productDetails'>;
+}
+
+const ProductDetails: React.FC<ProductDetailsProps> = ({route}) => {
   const {image, brand, description, title, price} = route?.params?.data;
   const [onCart, setOnCart] = useState(false);
-  const [like, setLike] = useState(false);
-  const handleLikePressed = () => {
-    setLike(!like);
+  const [cartProducts, setCartProducts] = useState([]);
+
+  const saveToCart = async (product: any) => {
+    setOnCart(true);
+    try {
+      const cartProducts = await AsyncStorage.getItem('cartProducts');
+      const parsedCartProducts = cartProducts ? JSON.parse(cartProducts) : [];
+
+      if (
+        !parsedCartProducts.some((item: {id: number}) => item.id === product.id)
+      ) {
+        parsedCartProducts.push(product);
+      }
+
+      await AsyncStorage.setItem(
+        'cartProducts',
+        JSON.stringify(parsedCartProducts),
+      );
+    } catch (error) {
+      console.error('Failed to save Cart product:', error);
+    }
   };
 
-  const handleClicked = () => {};
+  const removeCartProduct = async (product: any) => {
+    try {
+      setOnCart(false);
+      const cartProducts = await AsyncStorage.getItem('cartProducts');
+      const parsedCartProducts = cartProducts ? JSON.parse(cartProducts) : [];
+
+      const updatedCartProducts = parsedCartProducts.filter(
+        (item: {id: number}) => item.id !== product.id,
+      );
+
+      await AsyncStorage.setItem(
+        'cartProducts',
+        JSON.stringify(updatedCartProducts),
+      );
+    } catch (error) {
+      console.error('Failed to remove Cart product:', error);
+    }
+  };
+
+  const loadCartProducts = async () => {
+    try {
+      const cartProducts = await AsyncStorage.getItem('cartProducts');
+      if (cartProducts) {
+        setCartProducts(JSON.parse(cartProducts));
+      }
+    } catch (error) {
+      console.error('Failed to load Cart products:', error);
+    }
+  };
+
+  const handleClicked = (product: ProductTypes) => {
+    if (onCart) {
+      Alert.alert(
+        'Remove from Cart',
+        'Are you sure you want to remove this product from your Cart?',
+        [
+          {text: 'Cancel', style: 'cancel'},
+          {text: 'Remove', onPress: () => removeCartProduct(product)},
+        ],
+      );
+    } else {
+      Alert.alert(
+        'Add to  Cart',
+        'Are you sure you want to add  this product to your Cart?',
+        [
+          {text: 'Cancel', style: 'cancel'},
+          {text: 'Save', onPress: () => saveToCart(product)},
+        ],
+      );
+    }
+  };
+  const productFound = () => {
+    if (cartProducts) {
+      const found = cartProducts?.find(
+        (item: ProductTypes) => item?.id === route?.params?.data?.id,
+      );
+      if (found) {
+        setOnCart(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    loadCartProducts();
+  }, []);
+
+  useEffect(() => {
+    productFound();
+  }, [cartProducts]);
   return (
     <View style={styles.container}>
       <BackButton heading="back" />
       <ScrollView style={styles.box} showsVerticalScrollIndicator={false}>
-        <TouchableOpacity
-          style={styles.likeContainer}
-          onPress={() => {
-            handleLikePressed();
-          }}>
-          <Image
-            source={like ? likeRedLogo : likeLogo}
-            style={styles.lkeImage}
-          />
-        </TouchableOpacity>
         <Image source={{uri: image}} style={styles.imageStyle} />
         <Text style={styles.text}>{brand}</Text>
         <Text style={styles.text}>Price - ${price}</Text>
         <Text style={styles.descText}>{description} </Text>
         <Text style={styles.textTitle}>{title}</Text>
-        {onCart ? (
-          <Button buttonName="add to cart" handleSubmit={handleClicked} />
-        ) : (
-          <Button buttonName="remove from cart" handleSubmit={handleClicked} />
-        )}
+
+        <Button
+          buttonName={onCart ? 'remove ' : 'add to cart'}
+          handleSubmit={() => handleClicked(route?.params?.data)}
+        />
       </ScrollView>
     </View>
   );

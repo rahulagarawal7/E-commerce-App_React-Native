@@ -4,20 +4,17 @@ import {colors, ms} from '../../utils';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {t} from 'i18next';
 import {RootStackParamList} from '../../navigation/types';
-import {ProductTypes} from '../../utils/types';
 
-interface HeadingTextProps {
+interface CategoriesHeadingProps {
   primaryText: string;
   secondaryText: string;
-  screenName: keyof RootStackParamList;
-  seeAllList: ProductTypes[];
+  screenName?: keyof RootStackParamList;
 }
 
-const HeadingText: React.FC<HeadingTextProps> = ({
+const CategoriesHeading: React.FC<CategoriesHeadingProps> = ({
   primaryText,
   secondaryText,
   screenName,
-  seeAllList,
 }) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
@@ -26,16 +23,14 @@ const HeadingText: React.FC<HeadingTextProps> = ({
       <Text style={styles.headingText}>{t(primaryText)}</Text>
       <Text
         style={styles.seeAllText}
-        onPress={() =>
-          navigation.navigate(screenName as string, {data: seeAllList})
-        }>
+        onPress={() => navigation.navigate(screenName as string, undefined)}>
         {t(secondaryText)}
       </Text>
     </View>
   );
 };
 
-export default HeadingText;
+export default CategoriesHeading;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,6 +1,6 @@
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import {BackButton, ProductCardList, SeeAllProductList} from '../../component';
+import {BackButton, SeeAllProductList} from '../../component';
 import {colors, ms} from '../../utils';
 import {t} from 'i18next';
 import {RouteProp} from '@react-navigation/native';

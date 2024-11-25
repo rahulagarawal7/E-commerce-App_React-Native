@@ -1,7 +1,7 @@
 export {default as Home} from './home/Home';
 export {default as Notification} from './notification/Notification';
 export {default as Profile} from './profile/Profile';
-export {default as Cart} from './cart/Cart';
+export {default as Cart} from './cart/Cart.tsx';
 export {default as Wishlist} from './wishlist/Wishlist.tsx';
 export {default as UserProfile} from './userProfile/UserProfile.tsx';
 export {default as Address} from './address/Address.tsx';
@@ -19,3 +19,4 @@ export {default as Search} from './search/Search.tsx';
 export {default as Language} from './language/Language.tsx';
 export {default as CategoriesWiseList} from './categoriesWiseList/CategoriesWiseList.tsx';
 export {default as ProductDetails} from './productDetails/ProductDetails.tsx';
+export {default as FinalPayment} from './finalPayment/FinalPayment.tsx';

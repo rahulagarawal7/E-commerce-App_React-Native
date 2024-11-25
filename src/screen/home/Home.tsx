@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import {
   CategoriesCard,
+  CategoriesHeading,
   Header,
   HeadingText,
   ProductCardList,
@@ -24,15 +25,11 @@ type Props = {
   navigation: HomeScreenNavigationProp;
 };
 
-interface ProductTypesList {
-  products: ProductTypes[];
-}
-
 const Home: React.FC<Props> = ({navigation}) => {
-  const [products, setProducts] = useState<ProductTypesList>();
-  const data = useAppSelector(store => store?.products);
+  const [products, setProducts] = useState<ProductTypes[]>([]);
+  const data = useAppSelector(store => store?.products?.products);
   useEffect(() => {
-    setProducts(data?.products);
+    setProducts(data);
   }, [data]);
 
   return (
@@ -46,11 +43,10 @@ const Home: React.FC<Props> = ({navigation}) => {
         </TouchableOpacity>
 
         <View style={styles.box}>
-          <HeadingText
+          <CategoriesHeading
             primaryText="categories"
             secondaryText="see all"
             screenName={screenNames.seeAllCategories}
-            seeAllList={products}
           />
           <CategoriesCard />
         </View>

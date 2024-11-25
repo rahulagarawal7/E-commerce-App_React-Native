@@ -1,3 +1,5 @@
+import { ProductTypes } from "../utils/types";
+
 export type RootStackParamList = {
   BottomTab: undefined;
   login: undefined;
@@ -10,11 +12,12 @@ export type RootStackParamList = {
   userProfile: undefined;
   addAddress: undefined;
   seeAllCategories: undefined;
-  categoryList: { name: string }; 
+  categoryList: { data: ProductTypes[]; name: string };
   addPayment: undefined;
   cart: undefined;
-  productDetails:undefined;
-  categoriesWiseList:undefined
+  productDetails: { data: ProductTypes };
+  categoriesWiseList: { name: string  };
   search: undefined;
-  [key: string]: undefined | { name: string }; 
+  finalPayment:{price:number};
+  [key: string]: undefined | { name: string } | { data: ProductTypes[] } | { data: ProductTypes } | {price :number};
 };

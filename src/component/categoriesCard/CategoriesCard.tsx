@@ -21,7 +21,10 @@ const CategoriesCard: React.FC = () => {
               name: category.categoriesName,
             })
           }>
-          <Image source={category.categoriesImage} style={styles.image} />
+          <View style={styles.imageBox}>
+            <Image source={category.categoriesImage} style={styles.image} />
+          </View>
+
           <Text style={styles.categoriesNameText}>
             {t(category.categoriesName)}
           </Text>
@@ -44,11 +47,18 @@ const styles = StyleSheet.create({
     gap: 10,
     backgroundColor: colors.primaryBgColor,
   },
+  imageBox: {
+    height: ms(56),
+    width: ms(56),
+    borderRadius: 56,
+    backgroundColor: colors.cardBgColor,
+  },
   image: {
     height: ms(56),
     width: ms(56),
     borderRadius: 56,
     alignSelf: 'center',
+    objectFit: 'cover',
   },
   box: {
     gap: 5,

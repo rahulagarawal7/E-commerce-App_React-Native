@@ -2,7 +2,6 @@ export {default as AddButtonCard} from './addButtonCard/AddButtonCard';
 export {default as AddressCard} from './addressCard/AddressCard';
 export {default as BackButton} from './backButton/backButton';
 export {default as Button} from './button/Button';
-export {default as cartCard} from './cartCard/CartCard';
 export {default as CategoriesCard} from './categoriesCard/CategoriesCard';
 export {default as CenterHeading} from './centerHeading/CenterHeading';
 export {default as ChangeTheme} from './changeTheme/ChangeTheme';
@@ -19,3 +18,4 @@ export {default as ShopByCategoriesCard} from './shopByCategoriesCard/ShopByCate
 export {default as SearchBar} from './searchBar/SearchBar';
 export {default as ProductCardList} from './productCardList/ProductCardList';
 export {default as SeeAllProductList} from './seeAllProductList/SeeAllProductList';
+export {default as CategoriesHeading} from './categoriesHeading/CategoriesHeading';

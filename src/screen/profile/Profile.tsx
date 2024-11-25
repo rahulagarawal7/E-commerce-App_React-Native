@@ -4,7 +4,6 @@ import {UserLogo} from '../../assets';
 import {AddButtonCard, NameAddressCard} from '../../component';
 import {colors, ms} from '../../utils';
 import {screenNames} from '../../utils/constants';
-import Support from '../support/Support';
 
 const userInfo = {
   name: 'rahul Agrawal',

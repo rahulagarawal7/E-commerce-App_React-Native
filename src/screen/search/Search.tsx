@@ -29,7 +29,7 @@ const Search: React.FC<SearchProps> = ({navigation}) => {
             <TouchableOpacity
               key={category.id}
               onPress={() => {
-                navigation.navigate(screenNames.categoryList, {
+                navigation.navigate(screenNames.categoriesWiseList, {
                   name: category.categoriesName,
                 });
               }}>

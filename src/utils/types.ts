@@ -18,6 +18,7 @@ export interface ProductTypes{
         category?: string;
         popular?: boolean;
         discount?: number;
+        quantity?:number;
       }
       
    export   interface InitialProductsStateTypes {

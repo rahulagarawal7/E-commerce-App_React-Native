@@ -14,6 +14,7 @@ import {
   Language,
   ProductDetails,
   CategoriesWiseList,
+  FinalPayment,
 } from '../../../screen';
 import {screenNames} from '../../../utils/constants';
 
@@ -39,6 +40,7 @@ const StackScreen: StackScreenType[] = [
   {id: 13, name: screenNames.language, component: Language},
   {id: 14, name: screenNames.productDetails, component: ProductDetails},
   {id: 15, name: screenNames.categoriesWiseList, component: CategoriesWiseList},
+  {id: 16, name: screenNames.finalPayment, component: FinalPayment},
 ];
 
 export default StackScreen;
